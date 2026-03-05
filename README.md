@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gestión Granero - Sistema de Gestión para Tiendas
 
-## Getting Started
+Sistema web completo para la gestión de inventario, ventas, clientes y fiados desarrollado con Next.js 16, TypeScript y Supabase.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?style=flat&logo=typescript)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?style=flat&logo=tailwind-css)
+![Supabase](https://img.shields.io/badge/Supabase-3.3-3ECF8E?style=flat&logo=supabase)
 
+## 🚀 Características
+
+### Autenticación
+- Inicio de sesión y registro de usuarios
+- Protección de rutas con middleware
+- Sesiones seguras con Supabase Auth
+
+### Inventario
+- CRUD completo de productos
+- Alertas automáticas de stock bajo
+- Carga de imágenes con Next.js Image
+- Categorización de productos
+
+### Gestión de Clientes
+- Registro y edición de clientes
+- Información de contacto (teléfono, dirección)
+- Historial de fiados por cliente
+
+### Sistema de Ventas
+- Carrito de compras interactivo
+- Soporte para pagos en efectivo o fiado
+- Actualización automática de inventario
+- Registro detallado de cada venta
+
+### Fiados (Créditos)
+- Control de fiados por cliente
+- Sistema de abonos con seguimiento
+- Barra de progreso de pago
+- Estados: Pendiente, Parcial, Pagado
+
+### Reportes
+- Gráficos de ventas por período
+- Productos más vendidos
+- Totales de ventas y fiados pendientes
+- Filtros: Diario, Semanal, Mensual, Anual
+
+### Recordatorios
+- Lista de cobros pendientes ordenada por antigüedad
+- Indicadores de urgencia (Urgente, Atención, Normal)
+- Acceso rápido para llamar a clientes
+
+## 🛠️ Tecnologías
+
+- **Frontend**: Next.js 16 (App Router), React 19, TypeScript
+- **Estilos**: TailwindCSS 3.4
+- **Backend**: Supabase (PostgreSQL, Auth, Storage)
+- **Gráficos**: Recharts
+- **Iconos**: Lucide React
+
+## 📋 Requisitos Previos
+
+- Node.js 18+
+- npm o yarn
+- Cuenta de Supabase
+
+## ⚡ Instalación
+
+1. **Clonar el repositorio**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <url-del-repositorio>
+cd store-management
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instalar dependencias**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Configurar variables de entorno**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Crea un archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+```env
+NEXT_PUBLIC_SUPABASE_URL=tu_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_supabase_anon_key
+```
 
-## Learn More
+> **Nota:** Estas credenciales son de tu proyecto de Supabase. Si necesitas usar otro proyecto, obtén las credenciales en Supabase Dashboard → Settings → API.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Ejecutar el servidor de desarrollo**
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Abrir en el navegador**
+```
+http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗄️ Estructura de la Base de Datos
 
-## Deploy on Vercel
+### Tablas Principales
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sql
+-- Perfiles de usuarios
+profiles (id, full_name, email, avatar_url)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-- Categorías de productos
+categories (id, name, description, user_id)
+
+-- Productos
+products (id, name, description, price, stock, min_stock, image_url, category_id, user_id)
+
+-- Clientes
+clients (id, full_name, phone, address, notes, user_id)
+
+-- Fiados
+credits (id, client_id, description, total_amount, paid_amount, remaining_amount, status, due_date, user_id)
+
+-- Abonos a fiados
+credit_payments (id, credit_id, amount, notes, user_id)
+
+-- Ventas
+sales (id, total, notes, payment_type, client_id, user_id)
+
+-- Ítems de venta
+sale_items (id, sale_id, product_id, product_name, quantity, unit_price, subtotal)
+```
+
+## 📱 Diseño Responsivo
+
+La aplicación está optimizada para:
+- 📱 Teléfonos móviles
+- 📱 Tablets
+- 💻 Computadoras de escritorio
+
+## 🔒 Seguridad
+
+- Row Level Security (RLS) en todas las tablas
+- Políticas de acceso por usuario
+- Middleware de protección de rutas
+- Autenticación requerida para acceso
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado como prueba técnica.
+
+
