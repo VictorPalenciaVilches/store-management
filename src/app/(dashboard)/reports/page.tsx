@@ -28,7 +28,7 @@ export default function ReportsPage() {
     else startDate.setFullYear(now.getFullYear() - 1)
 
     const [{ data: sales }, { data: items }, { data: credits }] = await Promise.all([
-      supabase.from('sales').select('total, created_at, payment_type').gte('created_at', startDate.toISOString()),
+      supabase.from('sales').select('total, created_at, payment_type').gte('created_at', startDate.toISOString().split('T')[0]),
       supabase.from('sale_items').select('product_name, quantity, subtotal'),
       supabase.from('credits').select('remaining_amount').neq('status', 'paid'),
     ])
