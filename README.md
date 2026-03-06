@@ -7,7 +7,7 @@ Sistema web completo para la gestión de inventario, ventas, clientes y fiados d
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?style=flat&logo=tailwind-css)
 ![Supabase](https://img.shields.io/badge/Supabase-3.3-3ECF8E?style=flat&logo=supabase)
 
-## 🚀 Características
+##  Características
 
 ### Autenticación
 - Inicio de sesión y registro de usuarios
@@ -48,7 +48,7 @@ Sistema web completo para la gestión de inventario, ventas, clientes y fiados d
 - Indicadores de urgencia (Urgente, Atención, Normal)
 - Acceso rápido para llamar a clientes
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 - **Frontend**: Next.js 16 (App Router), React 19, TypeScript
 - **Estilos**: TailwindCSS 3.4
@@ -56,13 +56,13 @@ Sistema web completo para la gestión de inventario, ventas, clientes y fiados d
 - **Gráficos**: Recharts
 - **Iconos**: Lucide React
 
-## 📋 Requisitos Previos
+##  Requisitos Previos
 
 - Node.js 18+
 - npm o yarn
 - Cuenta de Supabase
 
-## ⚡ Instalación
+##  Instalación
 
 1. **Clonar el repositorio**
 ```bash
@@ -95,7 +95,7 @@ npm run dev
 http://localhost:3000
 ```
 
-## 🗄️ Estructura de la Base de Datos
+##  Estructura de la Base de Datos
 
 ### Tablas Principales
 
@@ -125,21 +125,21 @@ sales (id, total, notes, payment_type, client_id, user_id)
 sale_items (id, sale_id, product_id, product_name, quantity, unit_price, subtotal)
 ```
 
-## 📱 Diseño Responsivo
+##  Diseño Responsivo
 
 La aplicación está optimizada para:
-- 📱 Teléfonos móviles
-- 📱 Tablets
-- 💻 Computadoras de escritorio
+-  Teléfonos móviles
+-  Tablets
+-  Computadoras de escritorio
 
-## 🔒 Seguridad
+##  Seguridad
 
 - Row Level Security (RLS) en todas las tablas
 - Políticas de acceso por usuario
 - Middleware de protección de rutas
 - Autenticación requerida para acceso
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto fue desarrollado como prueba técnica.
 
