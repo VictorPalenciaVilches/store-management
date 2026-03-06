@@ -83,7 +83,6 @@ NEXT_PUBLIC_SUPABASE_URL=tu_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_supabase_anon_key
 ```
 
-> **Nota:** Estas credenciales son de tu proyecto de Supabase. Si necesitas usar otro proyecto, obtén las credenciales en Supabase Dashboard → Settings → API.
 
 4. **Ejecutar el servidor de desarrollo**
 ```bash
