@@ -137,7 +137,7 @@ export default function DashboardPage() {
             <h2 className="font-semibold text-gray-800">Productos con stock bajo</h2>
           </div>
           {lowStockItems.length === 0 ? (
-            <p className="text-gray-400 text-sm">Todo el inventario está bien 👍</p>
+            <p className="text-gray-400 text-sm">Todo el inventario está bien </p>
           ) : (
             <div className="space-y-3">
               {lowStockItems.map((product) => (
