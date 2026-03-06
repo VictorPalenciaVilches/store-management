@@ -173,7 +173,7 @@ export default function DashboardPage() {
                       {sale.clients?.full_name || 'Cliente general'}
                     </p>
                     <p className="text-xs text-gray-400">
-                      {sale.payment_type === 'cash' ? '💵 Efectivo' : '📋 Fiado'}
+                      {sale.payment_type === 'cash' ? ' Efectivo' : '📋 Fiado'}
                     </p>
                   </div>
                   <span className="text-sm font-medium text-emerald-600">
